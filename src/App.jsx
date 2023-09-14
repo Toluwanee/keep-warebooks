@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
-import './App.css'
-import { Login } from './Login';
-import { Register } from './Register';
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Login from './Login';
+import Register from './Register';
+
 
 function App() {
-  const [currentForm, setCurrentForm] = useState('login');
-
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
-  }
-
   return (
-    <div className='App'>
-    {
-      currentForm ==='Login'? <Login onFormSwitch={toggleForm}/>: <Register onFormSwitch={toggleForm}/>
-    }
+    <div className='text-white h-[100vh] flex justify-center items-center' style={{"background": "url('../src/assets/temp_bg.jpg"}}>
+  <Routes>
+    <Route path='Login' element={ <Login/>}/>
+    <Route path='Register' element={ <Register/>}/>
+  </Routes>
     </div>
-  );
+  )
 }
 
 export default App
